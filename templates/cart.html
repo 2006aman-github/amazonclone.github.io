@@ -106,7 +106,7 @@
       </div>
       <div class="sub-total-price">
         <div>
-          Subtotal (<span id="cart-size"></span>items): <b><span id="price"></span></b>
+          Subtotal (<span id="cart-size"></span> items): <b><span id="price"></span></b>
         </div>
         <br>
         <div class="buy text-decoration-none">
@@ -180,10 +180,11 @@
     }
 
 
-    function DeleteItem() {
+    function DeleteItem(e) {
       let item_id = document.getElementById(event.target.id);
       localStorage.removeItem(item_id.id)
-
+      location.reload()
+      location.reload()
     }
     let price = document.getElementsByClassName('product_price');
     i = 0
@@ -194,12 +195,11 @@
       fg = parseFloat(fg)
       cost += fg
       i++
-      console.log(fg);
       
       // console.log(typeof(cost));
     }
-    document.getElementById('price').innerText = "$"+Math.round(cost)
-    document.getElementById('cart-size').innerText = localStorage.length()
+    document.getElementById('price').innerText = "$"+Math.round(parseFloat(cost))
+    document.getElementById('cart-size').innerText = localStorage.length
 
   </script>
 </body>

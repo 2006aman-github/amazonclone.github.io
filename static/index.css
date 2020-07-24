@@ -13,38 +13,36 @@ body{
 
 .navbar{
     background-color: rgb(24, 21, 21) !important;
-    height: 60px !important;
+    width: 100% !important;
+    height: 65px !important;
     position: fixed !important;
     z-index: 1;
+    vertical-align: center !important;
+    /* display: flex !important;
+    flex-wrap: wrap; */
 }
 .search-btn{
     background-color: #e47911 !important;
 }
-.signup-link{
-    font-weight: bold !important;
-    font-size: 13px !important;
+.nav-item{
+    box-sizing: border-box !important;
+    margin: 8px !important;
+    width: auto !important;
+    height: 65px !important;
+    text-align: center !important;
+    font-size: .83rem !important;
+    padding: 5px !important;
+    color: white !important;
 }
-.signup-link span, .order-link b{
-    font-size: 11px !important;
+.nav-item:hover{
+    /* border: .1px solid white !important; */
+    background: #f18416;
 }
 .nav-link{
-    margin: 2px !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
-    color: white !important;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
-    width: 95px;
-}
-.nav-link:hover{
-    border: 1.2px solid white !important;
-}
-.order-link{
-    width: 100px !important;
-    height: 55px !important;
-    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    text-align: center;
 }
 .input-group{
     width: 750px !important;
@@ -69,7 +67,7 @@ body{
 .ProductList{
     /* z-index: -1; */
     position: absolute;
-    top: 100%;
+    top: 60%;
     /* width: 100%; */
     display: flex;
     flex-direction: row;
@@ -90,6 +88,10 @@ body{
     box-shadow: 3px 3px 5px grey;
     padding: 20px;
     margin: 10px;
+}
+.symbol{
+    font-size: 1rem !important;
+    color: crimson !important;
 }
 .add-to-cart-btn, .buy-btn{
     width: 120px;
@@ -119,6 +121,7 @@ body{
     align-items: center;
     flex-wrap: wrap;
     min-width: 100%;
+    /* max-width: 100%; */
 }
 .rating{
     display: flex;

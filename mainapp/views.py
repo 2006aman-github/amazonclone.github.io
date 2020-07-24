@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
@@ -8,7 +8,6 @@ def index(request):
     if request.user.is_anonymous == False:
         user = request.user.email
         user = user.title()
-        print(user)
     return render(request, "index.html", {
         "current_user": user
     })
@@ -17,23 +16,30 @@ def Cart(request):
 def Signin(request):
     if request.method == "POST":
         username = request.POST.get('email')
-        check_in_db = User.objects.get(username=username)
+        try:
+            check_in_db = User.objects.get(username=username)
+        except:
+            return render(request, "signin.html")
         if check_in_db != None:
             return render(request, "pswd.html",{
                 "username": username
             })
     return render(request, "signin.html")
+                
 
 def Password(request):
     if request.method == "POST":
         pswd = request.POST.get('pswd')
         username = request.POST.get('user')
         authenticate_user = authenticate(username=username, password=pswd)
-        if authenticate != None:
+        print(authenticate_user)
+        if authenticate_user != None:
             login(request, authenticate_user)
             return redirect("/")
         else:
-            pass
+            return render(request, "pswd.html", {
+                "wrong_pswd": True
+            })
             
 
 def Signup(request):
@@ -45,3 +51,7 @@ def Signup(request):
         new_user.save()
         return redirect("/signin")
     return render(request, "signup.html")
+
+def Logout(request):
+    logout(request)
+    return render(request, "index.html")

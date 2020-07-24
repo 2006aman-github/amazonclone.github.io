@@ -17,38 +17,38 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-    <a class="navbar-brand mx-3" href="#"><img width=100 height=40 src="../static/amazon.png" alt="amazon.in" wisth></a>
+    <a class="navbar-brand mx-3" href="/"><img width=100 height=40 src="../static/amazon.png" alt="amazon.in" wisth></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="input-group mx-3">
-        <!-- <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
-              </div> -->
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-          <span class="input-group-text search-btn"><i class="fa fa-search"></i></span>
-        </div>
+    <div class="input-group mx-3 my-3">
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <div class="input-group-append">
+        <span class="input-group-text search-btn"><i class="fa fa-search"></i></span>
       </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-        {% if current_user is None %}
-          <a class="nav-link signup-link" href="/signin">SignIn<br><span>Accounts&Login</span></a>
-        {% else %}
-        <a class="nav-link signup-link">Hello<br>{{current_user}}</span></a>
-        {% endif %}
+          {% if current_user is None %}
+          <a class="nav-link signup-link text-white" href="/signin">SignIn<br><small> Accounts&Login</small></a>
+          {% else %}
+          <a class="nav-link signup-link dropdown-toggle text-white" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Hello</b>{{current_user}}</span></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+          {% endif %}
         </li>
         <li class="nav-item">
-          <a class="nav-link order-link" href="#"> <b>Return&</b>Orders</a>
+          <a class="nav-link  text-white" href="#"> <b>Return&<br></b><small>Order</small></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link order-link" href="#"> <b>Prime Membershsip</b></a>
+          <a class="nav-link  text-white" href="#">Prime <br> Membershsip</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mr-0 order-link" href="/cart"><i class="fa-2x fa fa-shopping-cart" class="text-white"></i><span id="no-of-basket-items"></span></a>
+          <a class="nav-link mr-0 text-white order-link" href="/cart"><i class="fa-2x fa fa-shopping-basket"></i><span id="no-of-basket-items" class=" order-link"></span></a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
   <div class="mainPage">
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-      
+
         <div class="carousel-item active" data-interval="10000">
           <img class="carousel-img"
             src="https://images-eu.ssl-images-amazon.com/images/G/31/AmazonVideo/2020/X-site/SingleTitle/BITS/Launch/1500x600_Hero-Tall_np._CB410403194_.jpg"
@@ -104,7 +104,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>25.99</span><small><strike> $35.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>25.99</span><small><strike> $35.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg" class="s-image"
             alt="Echo Dot (3rd Gen) – New and improved smart speaker with Alexa (Black)" srcset="https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg 1x, 
@@ -128,7 +128,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>400.99</span><small><strike> $35.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>400.99</span><small><strike> $35.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/71kDxXuzDbL._AC_UY218_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -147,7 +147,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>120.99</span><small><strike> $135.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>120.99</span><small><strike> $135.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/81sXQ5gXL3L._AC_UY218_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -169,7 +169,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>250.99</span><small><strike> $305.00</strike></small></span>
+       <span class="symbol">$</span><span class="price my-3"><span>250.99</span><small><strike> $305.00</strike></small></span>
         <div class="container">
           <img src="https://images-na.ssl-images-amazon.com/images/I/615RFalDDkL._SL1500_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -180,14 +180,15 @@
         </div>
       </div>
       <div class="items">
-        <h3>ASUS VivoBook 14 X409FA-EK341T Intel Core i3 8th Gen 14-inch FHD Compact and Light Laptop (4GB RAM/1TB HDD/Windows 10/Integrated Graphics/FP Reader/1.60 kg), Transparent Silver</h3>
+        <h3>ASUS VivoBook 14 X409FA-EK341T Intel Core i3 8th Gen 14-inch FHD Compact and Light Laptop (4GB RAM/1TB
+          HDD/Windows 10/Integrated Graphics/FP Reader/1.60 kg), Transparent Silver</h3>
         <span class="rating">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>2500.00</span><small><strike> $2600.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>2500.00</span><small><strike> $2600.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/81Bq3kCc6AL._AC_UY218_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -205,7 +206,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>12000.55</span><small><strike> $35000.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>12000.55</span><small><strike> $35000.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/81WnWcQNSLL._AC_UY218_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -223,7 +224,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>3499.99</span><small><strike> $3600.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>3499.99</span><small><strike> $3600.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/61z85f1XsgL._AC_UY218_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -245,10 +246,11 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>25000.99</span><small><strike> $45000.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>25000.99</span><small><strike> $45000.00</strike></small></span>
         <div class="container">
-          <img src="https://images-eu.ssl-images-amazon.com/images/I/51r1YbUWUmL._AC_US160_FMwebp_QL70_.jpg" data-image-index="0"
-            data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
+          <img src="https://images-eu.ssl-images-amazon.com/images/I/51r1YbUWUmL._AC_US160_FMwebp_QL70_.jpg"
+            data-image-index="0" data-image-load="" data-image-latency="s-product-image" data-image-source-density="1"
+            width=300 height=150>
         </div>
         <div class="buttons">
           <button class="add-to-cart-btn" onclick="AddToCart()">Add to Cart</button>
@@ -256,14 +258,15 @@
         </div>
       </div>
       <div class="items">
-        <h3>Indian Polity - For Civil Services and Other State Examinations | 6th Edition Paperback – 27 December 2019</h3>
+        <h3>Indian Polity - For Civil Services and Other State Examinations | 6th Edition Paperback – 27 December 2019
+        </h3>
         <span class="rating">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>5.99</span><small><strike> $15.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>5.99</span><small><strike> $15.00</strike></small></span>
         <div class="container">
           <img src="https://images-eu.ssl-images-amazon.com/images/I/51rKNmuSrsL._AC_SY200_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -281,7 +284,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>250.89</span><small><strike> $300.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>250.89</span><small><strike> $300.00</strike></small></span>
         <div class="container">
           <img src="https://images-eu.ssl-images-amazon.com/images/I/41jHotoHysL._AC_SY200_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -291,7 +294,7 @@
           <button class="buy-btn">Buy Now</button>
         </div>
       </div>
-      
+
     </div>
 
 
@@ -312,7 +315,7 @@
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
         </div>
         <div class="buttons">
-          <button class="add-to-cart-btn"  onclick="AddToCart()">Add to Cart</button>
+          <button class="add-to-cart-btn" onclick="AddToCart()">Add to Cart</button>
           <button class="buy-btn">Buy Now</button>
         </div>
       </div>
@@ -324,7 +327,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>15.99</span><small><strike> $16.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>15.99</span><small><strike> $16.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/61ptzNC8r8L._AC_UY218_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -334,39 +337,42 @@
           <button class="buy-btn">Buy Now</button>
         </div>
       </div>
-      
+
     </div>
 
 
 
     <div class="home__row">
       <div class="items">
-        <h3>DeoDap Gardening Tools 600 GMS Hatchet Axe Fiberglass Body Rubberized Handle Wood Cutting Axe, Camping Axe, Safety Axe</h3>
+        <h3>DeoDap Gardening Tools 600 GMS Hatchet Axe Fiberglass Body Rubberized Handle Wood Cutting Axe, Camping Axe,
+          Safety Axe</h3>
         <span class="rating">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>345.99</span><small><strike> $895.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>345.99</span><small><strike> $895.00</strike></small></span>
         <div class="container">
-          <img src="https://images-eu.ssl-images-amazon.com/images/I/41yvqre-TlL._AC_US160_FMwebp_QL70_.jpg" data-image-index="0"
-            data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
+          <img src="https://images-eu.ssl-images-amazon.com/images/I/41yvqre-TlL._AC_US160_FMwebp_QL70_.jpg"
+            data-image-index="0" data-image-load="" data-image-latency="s-product-image" data-image-source-density="1"
+            width=300 height=150>
         </div>
         <div class="buttons">
-          <button class="add-to-cart-btn"  onclick="AddToCart()">Add to Cart</button>
+          <button class="add-to-cart-btn" onclick="AddToCart()">Add to Cart</button>
           <button class="buy-btn">Buy Now</button>
         </div>
       </div>
       <div class="items">
-        <h3>Philips Hue 10W B22 Smart Bulb (White & Color), Compatible with Amazon Alexa, Apple HomeKit, and The Google Assistant</h3>
+        <h3>Philips Hue 10W B22 Smart Bulb (White & Color), Compatible with Amazon Alexa, Apple HomeKit, and The Google
+          Assistant</h3>
         <span class="rating">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>08.99</span><small><strike> $12.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>08.99</span><small><strike> $12.00</strike></small></span>
         <div class="container">
           <img src="https://m.media-amazon.com/images/I/418REWyIdgL._AC_UL320_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -384,7 +390,7 @@
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
           <img class="star mx-0" src="../static/star.png" alt="1" srcset="">
         </span>
-        $<span class="price my-3"><span>105.99</span><small><strike> $125.00</strike></small></span>
+        <span class="symbol">$</span><span class="price my-3"><span>105.99</span><small><strike> $125.00</strike></small></span>
         <div class="container">
           <img src="https://images-na.ssl-images-amazon.com/images/I/51G8wQVB8hL._SX679_.jpg" data-image-index="0"
             data-image-load="" data-image-latency="s-product-image" data-image-source-density="1" width=300 height=150>
@@ -394,7 +400,7 @@
           <button class="buy-btn">Buy Now</button>
         </div>
       </div>
-      
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

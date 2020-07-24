@@ -15,7 +15,10 @@
     border-radius: 5px;
    padding: 25px;
 }
-
+::placeholder{
+    color: crimson;
+    font-size: x-large;
+}
 .login-form{
     display: inline;
     font-size: small;
