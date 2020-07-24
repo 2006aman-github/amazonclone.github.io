@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$+$f%-nuttwxozv_1dx!l97da3!n!eq)75kpj7z92yh(=)od!w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://2006aman-github.github.io/amazonclone.github.io/']
 
 
 # Application definition
