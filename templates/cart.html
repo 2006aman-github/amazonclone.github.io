@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon: Online Shopping-Site-Cart</title>
+  <link rel="stylesheet" href="../static/cart.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <a class="navbar-brand mx-3" href="#"><img width=100 height=40 src="amazon.png" alt="amazon.in" wisth></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="input-group mx-3">
+            <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div> -->
+  <!-- <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+              <span class="input-group-text search-btn"><i class="fa fa-search"></i></span>
+            </div>
+          </div>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link signup-link" href="signin.html">SignIn<br><span>Accounts&Login</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link order-link" href="#"> <b>Return&</b>Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link order-link" href="#"> <b>Prime Membershsip</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mr-0 order-link" href="cart.html"><i class="fa-2x fa fa-shopping-cart" class="text-white"></i><span id="no-of-basket-items">0</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav> -->
+  <!-- <div class="main-cart-section">
+        <div class="container">
+            <h3 class="my-5 shopping">Shopping Cart</h3>
+            <hr>
+            <div class="items" id="items-a">
+                <div class="row">
+                    <div class="col-lg-10 col-md-8 col-12 cart-item">
+                        <div class="item-img">
+                            <img id = "selectedProductImg" src="https://m.media-amazon.com/images/I/71kDxXuzDbL._AC_UY218_.jpg" data-image-index="0"
+                            data-image-load="" data-image-latency="s-product-image" data-image-source-density="1"
+                            width=300 height=850>
+                        </div>
+                        <div class="item-details block">
+                            <h5 class="my-3 mt-2"><a href="" id="product_name">Redmi 8A Pro - 4GB RAM (64GB-STORAGE, Seade Bule)</a></h5>
+                        <small>Eligible for Free Shipping</small>
+                        <br>
+                        <img  alt=""
+                        src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
+                        height="18px"
+                        data-a-hires="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px-2x._CB485942108_.png">
+                        <br>
+                        <select name="Qty" id="quantity" aria-valuemax="Qty" class="my-2">
+                            <option value="">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                            <option value="1">4</option>
+                            <option value="1">5</option>
+                            <option value="1">6</option>
+                            <option value="1">7</option>
+                            <option value="1">8</option>
+                            <option value="1">9</option>
+                            <option value="Qty">0(Delete)</option>
+                            <option value="1">10 or 10+</option>
+                        </select>
+                        <a href="#" class="mx-2" onclick="DeleteItem()">Delete</a>| <a href="">Save for Later</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-0 text-right price">
+                    <small style="float: right;">Price</small>
+                    <br>
+                    <b>
+                        <h5 class="font-weight-bold" id="product_price"> $150.99</h5>
+                    </b>
+                </div> -->
+  <!-- </div>
+            <hr>
+          </div>
+             items  -->
+  <!-- </div> -->
+  <!-- container ends  -->
+
+  <div class="mt-5 mainDiv">
+    <div class="secure-img mb-0">
+      <img alt=""
+        src="https://images-eu.ssl-images-amazon.com/images/G/31/checkout/assets/TM_desktop._CB443006202_.png">
+    </div>
+    <div class="sub-total">
+      <div class="head">
+        Your order is eligible for FREE Delivery. Select this option at checkout. Details
+      </div>
+      <div class="sub-total-price">
+        <div>
+          Subtotal (2 items): <b><span id="price">$</span></b>
+        </div>
+        <br>
+        <div class="buy text-decoration-none">
+          <a href="#" class="text-decoration-none text-dark">Proceed To Buy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+
+    item = 0
+    for (; item <= 15;) {
+
+      c = localStorage.getItem("item" + item);
+      if (c == null) {
+        item++
+        continue
+      } else {
+
+        d = JSON.parse(c)
+        document.write(`
+        <div class="container  ml-5 mr-0 mt-0">
+        <hr>
+        <div class="row">
+        <div class="col-lg-10 col-md-8 col-12 cart-item">
+        <div class="item-img">
+        <img id = "selectedProductImg" src="${d.product_img}" data-image-index="0"
+        data-image-load="" data-image-latency="s-product-image" data-image-source-density="1"
+        width=300 height=850>
+        </div>
+        <div class="item-details block">
+        <h5 class="my-3 mt-2"><a href="" id="product_name">${d.product_name}</a></h5>
+        <small>Eligible for Free Shipping</small>
+        <br>
+        <img  alt=""
+        src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
+        height="18px"
+        data-a-hires="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px-2x._CB485942108_.png">
+        <br>
+        <select name="Qty" id="quantity" aria-valuemax="Qty" class="my-2">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+        <option value="">7</option>
+        <option value="">8</option>
+        <option value="">9</option>
+        <option value="">0(Delete)</option>
+        <option value="1">10 or 10+</option>
+        </select>
+        <a href="#" class="mx-2" id="${"item" + item}" onclick="DeleteItem()">Delete</a>| <a href="">Save for Later</a>
+        </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-0 text-right price">
+        <small style="float: right;">Price</small>
+        <br>
+        <b>
+        <h5 class="font-weight-bold product_price"><span>$</span>${d.product_price}</h5>
+        </b>
+        </div>
+        </div>
+        <hr>
+        </div>
+        </div>
+        `)
+        item++
+      }
+    }
+
+
+    function DeleteItem() {
+      let item_id = document.getElementById(event.target.id);
+      localStorage.removeItem(item_id.id)
+
+    }
+    let price = document.getElementsByClassName('product_price');
+    i = 0
+    cost = 0
+    for (;i <= localStorage.length-1;) {
+      let fg = price[i].innerText
+      fg = fg.slice(1, 100)
+      fg = parseFloat(fg)
+      cost += fg
+      i++
+      console.log(fg);
+      
+      // console.log(typeof(cost));
+    }
+    document.getElementById('price').innerText = "$"+Math.round(cost)
+
+  </script>
+</body>
+
+</html>
