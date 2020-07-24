@@ -106,7 +106,7 @@
       </div>
       <div class="sub-total-price">
         <div>
-          Subtotal (2 items): <b><span id="price">$</span></b>
+          Subtotal (<span id="cart-size"></span>items): <b><span id="price"></span></b>
         </div>
         <br>
         <div class="buy text-decoration-none">
@@ -199,6 +199,7 @@
       // console.log(typeof(cost));
     }
     document.getElementById('price').innerText = "$"+Math.round(cost)
+    document.getElementById('cart-size').innerText = localStorage.length()
 
   </script>
 </body>

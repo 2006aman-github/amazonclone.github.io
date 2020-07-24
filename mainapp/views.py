@@ -7,6 +7,7 @@ def index(request):
     user = None
     if request.user.is_anonymous == False:
         user = request.user.email
+        user = user.title()
         print(user)
     return render(request, "index.html", {
         "current_user": user
