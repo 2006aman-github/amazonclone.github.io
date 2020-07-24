@@ -15,16 +15,19 @@
 
     <div class="log-section">
         <div class="main-section">
-            <form action="/signin" method="post" class="login-form">
+            <form action="/signup" method="post" class="login-form">
                {% csrf_token %}
                 <h3>Login</h3>
                 <label for="" class="font-weight-bold mt-3">Your Name</label>
-                <input type="text" name="email" required class="mt-0">
+                <input type="text" name="name" required class="mt-0">
                 <label for="" class="font-weight-bold mt-3">Email</label>
                 <input type="text" name="email" required class="mt-0">
                 <label for="" class="font-weight-bold mt-3">Password</label>
-                <input type="text" name="email" required class="mt-0" minlength="8">
-                <small>Password must be 8 Characters long</small>
+                <input type="text" name="password" required class="mt-0" minlength="8">
+                <div>
+                    Password must be 8 characters long
+                </div>
+                
                 <button>Continue</button>
                 <br><br>
                 <span>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</span>

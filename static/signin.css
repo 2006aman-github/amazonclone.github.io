@@ -1,6 +1,6 @@
 .logo{
     display: block;
-    margin: 10px;
+    margin: 10px auto;
 }
 .log-section{
     display: block;
@@ -10,7 +10,7 @@
 }
 .main-section{
     width: inherit;
-    height: 65%;
+    height: auto;
     border: .1px solid rgb(228, 228, 228);
     border-radius: 5px;
    padding: 25px;
@@ -23,7 +23,7 @@
 .login-form input{
     width: 100%;
     height: 35px;
-    margin: 20px 0;
+    margin: 15px 0;
     outline: none;
     padding: 6px;
     

@@ -35,7 +35,11 @@
       </div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
+        {% if current_user is None %}
           <a class="nav-link signup-link" href="/signin">SignIn<br><span>Accounts&Login</span></a>
+        {% else %}
+        <a class="nav-link signup-link">Hello<br>{{current_user}}</span></a>
+        {% endif %}
         </li>
         <li class="nav-item">
           <a class="nav-link order-link" href="#"> <b>Return&</b>Orders</a>
